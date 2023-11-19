@@ -1,0 +1,20 @@
+pragma solidity ^0.8.0;
+
+contract CallCounter {
+    uint public callCount;
+
+    event CallEvent(address indexed caller, uint indexed count);
+
+    constructor() {
+        callCount = 0;
+    }
+
+    function incrementCounter() public {
+        callCount++;
+        emit CallEvent(msg.sender, callCount);
+    }
+
+    function getCallCount() public view returns (uint) {
+        return callCount;
+    }
+}
