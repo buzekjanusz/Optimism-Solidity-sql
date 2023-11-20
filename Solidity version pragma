@@ -1,0 +1,35 @@
+// SPDX-License-Identifier: MIT
+// Above line specifies the license for the smart contract
+
+// Solidity version pragma
+pragma solidity ^0.8.0;
+
+// Contract declaration
+contract SimpleSmartContract {
+    // State variable to store an unsigned integer
+    uint public counter;
+
+    // Event emitted when the counter is incremented
+    event CounterIncremented(address indexed _caller, uint _newCounterValue);
+
+    // Constructor function, called once during deployment
+    constructor() {
+        // Initialize the counter to zero
+        counter = 0;
+    }
+
+    // Function to increment the counter
+    function incrementCounter() public {
+        // Increase the counter by 1
+        counter++;
+
+        // Emit an event to log the increment
+        emit CounterIncremented(msg.sender, counter);
+    }
+
+    // Function to get the current value of the counter
+    function getCounter() public view returns (uint) {
+        // Return the current value of the counter
+        return counter;
+    }
+}
