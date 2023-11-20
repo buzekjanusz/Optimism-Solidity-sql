@@ -1,0 +1,49 @@
+// SPDX-License-Identifier: MIT
+// Above line specifies the license for the smart contract
+
+// Solidity version pragma
+pragma solidity ^0.8.0;
+
+// Contract declaration
+contract SimpleToken {
+    // Mapping to store the balances of users
+    mapping(address => uint) public balances;
+
+    // Address of the contract owner
+    address public owner;
+
+    // Event emitted when tokens are transferred
+    event TokensTransferred(address indexed _from, address indexed _to, uint _amount);
+
+    // Modifier to ensure that only the owner can call certain functions
+    modifier onlyOwner() {
+        require(msg.sender == owner, "You are not the owner");
+        _;
+    }
+
+    // Constructor function, called once during deployment
+    constructor() {
+        // Set the contract owner to the deployer's address
+        owner = msg.sender;
+    }
+
+    // Function to transfer tokens from the owner to a recipient
+    function transferTokens(address _to, uint _amount) public onlyOwner {
+        // Check that the owner has enough tokens to transfer
+        require(_amount <= balances[owner], "Insufficient tokens in the owner's balance");
+
+        // Decrease the owner's balance
+        balances[owner] -= _amount;
+
+        // Increase the recipient's balance
+        balances[_to] += _amount;
+
+        // Emit an event to log the token transfer
+        emit TokensTransferred(owner, _to, _amount);
+    }
+
+    // Function to get the balance of a specific address
+    function getBalance(address _account) public view returns (uint) {
+        return balances[_account];
+    }
+}
