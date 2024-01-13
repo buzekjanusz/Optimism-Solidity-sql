@@ -15,6 +15,5 @@ contract TokenTransferWithSQL {
 
         uint sqlData = SQLOracle(sqlOracleAddress).getDataFromSQL(sqlQuery);
         require(amount <= sqlData, "invalid");
-        // token.transfer(msg.sender, amount);
     }
 }
