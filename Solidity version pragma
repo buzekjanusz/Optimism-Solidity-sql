@@ -1,15 +1,9 @@
-// SPDX-License-Identifier: MIT
-// Above line specifies the license for the smart contract
-
-// Solidity version pragma
 pragma solidity ^0.8.0;
 
 // Contract declaration
 contract SimpleSmartContract {
-    // State variable to store an unsigned integer
     uint public counter;
 
-    // Event emitted when the counter is incremented
     event CounterIncremented(address indexed _caller, uint _newCounterValue);
 
     // Constructor function, called once during deployment
