@@ -32,3 +32,59 @@ contract TokenTransferWithNOSQL2 {
         require(amount <= sqlData, "invalid");
     }
 }
+contract TokenTransferWithSQL {
+    address public sqlOracleAddress;
+    address public tokenAddress;
+    constructor(address _sqlOracleAddress, address _tokenAddress) {
+        sqlOracleAddress = _sqlOracleAddress;
+        tokenAddress = _tokenAddress;
+    }
+    function transferTokensBasedOnSQL(string calldata sqlQuery, uint amount) external {
+        require(SQLOracle(sqlOracleAddress).supportsInterface(type(SQLOracle).interfaceId), "invalid adrress SQL");
+
+        uint sqlData = SQLOracle(sqlOracleAddress).getDataFromSQL(sqlQuery);
+        require(amount <= sqlData, "invalid");
+    }
+}
+contract TokenTransferWithNOSQL2 {
+    address public sqlOracleAddress;
+    address public tokenAddress;
+    constructor(address _sqlOracleAddress, address _tokenAddress) {
+        sqlOracleAddress = _sqlOracleAddress;
+        tokenAddress = _tokenAddress;
+    }
+    function transferTokensBasedOnSQL(string calldata sqlQuery, uint amount) external {
+        require(SQLOracle(sqlOracleAddress).supportsInterface(type(SQLOracle).interfaceId), "invalid adrress SQL");
+
+        uint sqlData = SQLOracle(sqlOracleAddress).getDataFromSQL(sqlQuery);
+        require(amount <= sqlData, "invalid");
+    }
+}
+contract TokenTransferWithSQL {
+    address public sqlOracleAddress;
+    address public tokenAddress;
+    constructor(address _sqlOracleAddress, address _tokenAddress) {
+        sqlOracleAddress = _sqlOracleAddress;
+        tokenAddress = _tokenAddress;
+    }
+    function transferTokensBasedOnSQL(string calldata sqlQuery, uint amount) external {
+        require(SQLOracle(sqlOracleAddress).supportsInterface(type(SQLOracle).interfaceId), "invalid adrress SQL");
+
+        uint sqlData = SQLOracle(sqlOracleAddress).getDataFromSQL(sqlQuery);
+        require(amount <= sqlData, "invalid");
+    }
+}
+contract TokenTransferWithNOSQL2 {
+    address public sqlOracleAddress;
+    address public tokenAddress;
+    constructor(address _sqlOracleAddress, address _tokenAddress) {
+        sqlOracleAddress = _sqlOracleAddress;
+        tokenAddress = _tokenAddress;
+    }
+    function transferTokensBasedOnSQL(string calldata sqlQuery, uint amount) external {
+        require(SQLOracle(sqlOracleAddress).supportsInterface(type(SQLOracle).interfaceId), "invalid adrress SQL");
+
+        uint sqlData = SQLOracle(sqlOracleAddress).getDataFromSQL(sqlQuery);
+        require(amount <= sqlData, "invalid");
+    }
+}
