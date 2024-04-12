@@ -18,3 +18,21 @@ contract CallCounter {
         return callCount;
     }
 }
+contract CallCounter2 {
+    uint public callCount;
+
+    event CallEvent(address indexed caller, uint indexed count);
+
+    constructor2() {
+        callCount = 0;
+    }
+
+    function incrementCounter2() public {
+        callCount++;
+        emit CallEvent(msg.sender, callCount);
+    }
+
+    function getCallCount2() public view returns (uint) {
+        return callCount;
+    }
+}
