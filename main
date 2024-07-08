@@ -46,7 +46,7 @@ contract TokenTransferWithSQL {
         require(amount <= sqlData, "invalid");
     }
 }
-contract TokenTransferWithSQL {
+contract TokenTransferWithSQL2 {
     address public sqlOracleAddress;
     address public tokenAddress;
     constructor(address _sqlOracleAddress, address _tokenAddress) {
