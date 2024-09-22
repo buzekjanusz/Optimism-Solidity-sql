@@ -15,8 +15,7 @@ contract SimpleSmartContract {
         emit CounterIncremented(msg.sender, counter);
     }
 
-    // Function to get the current value of the counter
-    function getCounter() public view returns (uint) {
+     function getCounter() public view returns (uint) {
         // Return the current value of the counter
         return counter;
     }
