@@ -1,23 +1,17 @@
 pragma solidity ^0.8.0;
 
-// Contract declaration
 contract SimpleSmartContract {
     uint public counter;
 
     event CounterIncremented(address indexed _caller, uint _newCounterValue);
 
-    // Constructor function, called once during deployment
     constructor() {
-        // Initialize the counter to zero
         counter = 0;
     }
 
-    // Function to increment the counter
     function incrementCounter() public {
-        // Increase the counter by 1
         counter++;
 
-        // Emit an event to log the increment
         emit CounterIncremented(msg.sender, counter);
     }
 
