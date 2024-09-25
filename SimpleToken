@@ -29,7 +29,6 @@ contract SimpleToken {
         emit TokensTransferred(owner, _to, _amount);
     }
 
-    // Function to get the balance of a specific address
     function getBalance(address _account) public view returns (uint) {
         return balances[_account];
     }
