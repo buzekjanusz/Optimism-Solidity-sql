@@ -21,13 +21,6 @@ contract SimpleSmartContract {
     }
 }
 
-// SPDX-License-Identifier: MIT
-// The above line specifies the license for the smart contract
-
-// Solidity version pragma
-pragma solidity ^0.8.0;
-
-// Contract declaration
 contract SimpleContract {
     string public greeting;
 
