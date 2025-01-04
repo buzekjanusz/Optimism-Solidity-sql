@@ -1,5 +1,4 @@
 pragma solidity ^0.8.0;
-
 contract SimpleToken {
     mapping(address => uint) public balances;
     address public owner;
@@ -13,8 +12,6 @@ contract SimpleToken {
         // Set the contract owner to the deployer's address
         owner = msg.sender;
     }
-
-    // Function to transfer tokens from the owner to a recipient
     function transferTokens(address _to, uint _amount) public onlyOwner {
         // Check that the owner has enough tokens to transfer
         require(_amount <= balances[owner], "Insufficient tokens in the owner's balance");
@@ -28,7 +25,6 @@ contract SimpleToken {
         // Emit an event to log the token transfer
         emit TokensTransferred(owner, _to, _amount);
     }
-
     function getBalance(address _account) public view returns (uint) {
         return balances[_account];
     }
