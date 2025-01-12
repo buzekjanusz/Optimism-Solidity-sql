@@ -3,26 +3,17 @@ contract SimpleToken {
     mapping(address => uint) public balances;
     address public owner;
     event TokensTransferred(address indexed _from, address indexed _to, uint _amount);
-
     modifier onlyOwner() {
         require(msg.sender == owner, "You are not the owner");
         _;
     }
     constructor() {
-        // Set the contract owner to the deployer's address
         owner = msg.sender;
     }
     function transferTokens(address _to, uint _amount) public onlyOwner {
-        // Check that the owner has enough tokens to transfer
         require(_amount <= balances[owner], "Insufficient tokens in the owner's balance");
-
-        // Decrease the owner's balance
         balances[owner] -= _amount;
-
-        // Increase the recipient's balance
         balances[_to] += _amount;
-
-        // Emit an event to log the token transfer
         emit TokensTransferred(owner, _to, _amount);
     }
     function getBalance(address _account) public view returns (uint) {
