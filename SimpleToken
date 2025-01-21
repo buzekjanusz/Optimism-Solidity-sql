@@ -5,7 +5,6 @@ contract SimpleToken {
     event TokensTransferred(address indexed _from, address indexed _to, uint _amount);
     modifier onlyOwner() {
         require(msg.sender == owner, "You are not the owner");
-        _;
     }
     constructor() {
         owner = msg.sender;
